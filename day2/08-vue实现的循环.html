@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p v-for="(v,k) in books" :key="k">{{v }}--{{k}}</p>
+  </div>
+  <script type="module">
+    import { createApp } from '../vue.js';
+
+    createApp({
+      data() {
+        return {
+          books: ['斗罗大陆', '鬼吹灯', '诛仙', '考研英语', '计算机基础']
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 让复选框选中 -->
+    爱好:
+    <input type="checkbox" value="LOL" v-model="checkedNames"> LOL
+    <input type="checkbox" value="ju" v-model="checkedNames"> 刷剧
+    <input type="checkbox" value="mei" v-model="checkedNames"> 美食
+    <input type="checkbox" value="kan" v-model="checkedNames"> 看书
+  </div>
+  <script type="module">
+    import { createApp } from '../vue.js'
+
+    createApp({
+      data() {
+        return {
+          // 以数组的形式,设置页面中选中checkbox的value值
+          checkedNames: ['ju', 'kan']
+        }
+      }
+    }).mount('#app')
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-show 原理是 display:none 不显示  display:block 显示 -->
+    <!-- 本质 将dom节点渲染出来 -->
+    <p v-show="isShow"> 理论和实践向结合 </p>
+    <!-- v-if 是 不让DOM节点渲染出来,需要的时候才渲染 -->
+    <p v-if="isShow">什么是值得我们追求的</p>
+    <input type="button" value="切换" @click="fn">
+  </div>
+  <script type="module">
+    // 如果状态切换频繁就用v-show
+    // 如果需要根据状态渲染一次就使用 v-if
+    import { createApp } from '../vue.js';
+
+    // 创建vue实例且实现挂载
+    createApp({
+      data() {
+        return {
+          // isShow: true
+          isShow: false
+        }
+      },
+      methods: {
+        fn() {
+          this.isShow = true;
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

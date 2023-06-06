@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 双向数据绑定,页面中input框发生变化,可以影响vue中的对象 -->
+  <!-- 双向数据绑定,vue中数据发生改变,input也会发生改变 -->
+  <div id="app">
+    <!-- v-model将vue中的数据,设置到input中,一般也用在input中 -->
+    <input type="text" v-model:value="name" v-on:input="inputFN">
+    <br />
+    <textarea v-model:value="message"></textarea>
+  </div>
+  <script type="module">
+    import { createApp } from '../vue.js';
+
+    createApp({
+      data() {
+        return {
+          name: '小甜甜999',
+          message: '上午的课刚刚开始'
+        }
+      },
+      methods: {
+        // 事件的event对象,可以获取当前的事件源
+        inputFN(eve) {
+          // console.log(eve.target.value);
+
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>
