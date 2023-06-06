@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // js对象由属性和方法组成
+
+    let obj = {
+      name: '小甜甜',
+      age: 22,
+      say() {
+        console.log(this.name + '说: 今天中午,你请我吃饭');
+
+      }
+    }
+
+    // console.log(obj.name);
+    // obj.say();
+
+    // 当变量和属性同名时,可以用变量名做属性
+    let info = '好困呀'
+    let obj1 = {
+      info
+    }
+
+    // console.log(obj1);
+
+
+
+  </script>
+</body>
+
+</html>

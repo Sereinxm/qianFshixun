@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!--  v-text 可以将data中内容渲染到标签中,不能解析html标签 -->
+    <div v-text="info"></div>
+    <div v-text="aLink"></div>
+    <!-- v-html  可解析html标签的 -->
+    <div v-html="aLink"></div>
+    <!-- 以标签属性方式设置的值是生效的,覆盖胡子语法 -->
+    <div v-html="aLink">{{msg}}</div>
+  </div>
+  <script type="module">
+    // 导入vue函数
+    import { createApp } from '../vue.js';
+    // 设置data和挂载
+    createApp({
+      data() {
+        return {
+          info: "一会就下课....",
+          aLink: '<a href="http://www.baidu.com"> 点我有惊喜 </a>',
+          msg: "今儿是阴天"
+        }
+      }
+    }).mount('#app')
+
+  </script>
+</body>
+
+</html>

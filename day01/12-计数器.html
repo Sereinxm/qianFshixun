@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+
+
+    <input type="button" value="减少" v-bind:disabled="jian" @click="redNum"> &nbsp; &nbsp;
+    <span v-html="num"></span> &nbsp; &nbsp;
+    <input type="button" value="增加" v-bind:disabled="jia" @click="addNum">
+  </div>
+  <script type="module">
+    import { createApp } from '../vue.js';
+    createApp({
+      data() {
+        return {
+          num: 0,
+          jian: true,
+          jia: false
+        }
+      },
+      methods: {
+        // 增加 让num的值 每次加1
+        addNum() {
+          this.num = this.num + 1;
+          // num 为10则禁用增加按钮
+          if (this.num == 10) {
+            this.jia = true;
+          }
+          // 解除减少的禁用
+          this.jian = false;
+        },
+        redNum() {
+          // 判断num为0,则禁用减少按钮
+
+          this.num = this.num - 1;
+          if (this.num == 0) {
+            this.jian = true;
+          }
+          // 解除增加按钮的禁用
+          this.jia = false;
+        }
+      }
+    }).mount('#app');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 不在vue渲染范围之内 -->
+  <h3>{{info}}</h3>
+  <!-- 指定vue的渲染范围 -->
+  <div id="app">
+    <!-- vue 中表达式 胡子语法 {{}} -->
+    <p>{{name}}</p>
+    <p>{{num+1}}</p>
+    <p> {{info}} </p>
+  </div>
+  <!-- 设置type类型 -->
+  <script type="module">
+    // 导入
+    import { createApp } from '../vue.js';
+
+    // 设置vue相关参数
+    createApp({
+      //  所有的参数写在data中,以对象的形式返回
+      data() {
+        return {
+          name: "小甜甜",
+          num: 1,
+          info: '啦啦.....'
+        }
+      }  // 在js中获取渲染的范围.
+    }).mount('#app')
+
+  </script>
+</body>
+
+</html>

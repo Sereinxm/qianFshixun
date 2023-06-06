@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-bind 指定标签上的属性 -->
+    <img v-bind:src="imgUrl" alt="">
+    <div v-bind:style="{backgroundColor: bgColor ? 'red': ''}">给div设置背景颜色</div>
+    <!-- v-bind 简写为 : -->
+    <img :src="img1" alt="">
+  </div>
+  <script type="module">
+    import { createApp } from '../vue.js';
+    createApp({
+      data() {
+        return {
+          imgUrl: '../img/1.jpg',
+          bgColor: true,
+          img1: '../img/2.jpg'
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

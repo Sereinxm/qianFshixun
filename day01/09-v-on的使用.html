@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="button" v-on:click="inputFn" value="点击">
+    <!-- 简写为@事件 -->
+    <input type="button" @click="fn1" value="再次点击">
+    <!-- 参数的传递 -->
+    <input type="button" value="还点击" @click="fn2('点击时传递的参数')">
+    <!-- 事件修饰符,阻止默认行为 -->
+    <form action="" @submit.prevent="subFn">
+      姓名
+      <input type="text" name="" id="">
+      <br />
+      <input type="submit" value="点击提交">
+    </form>
+  </div>
+  <script type="module">
+    import { createApp } from '../vue.js';
+
+    createApp({
+      data() {
+
+      },
+      // 写各种可以调用的方法
+      methods: {
+        inputFn() {
+          console.log('点击事件的方法....');
+
+        },
+        // 点击事件的回调方法
+        fn1() {
+          console.log('这是点击的方法fn1...');
+
+        },
+        fn2(str) {
+          console.log(str, 'fn2...');
+
+        },
+        subFn() {
+          console.log('subfn....');
+
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

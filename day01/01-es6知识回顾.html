@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // es6之前 声明变量使用 var
+    // es6之后 声明变量使用 let
+
+    // 声明变量
+    let info = '见过你的美,还能爱上谁?';
+    // console.log(info);
+
+    // 重复声明变量,会报错
+    // let info = '小甜甜';
+
+    //声明常量 const  声明之后值不允许被修改
+
+    const goods = '老太太上鸡窝---笨蛋';
+    // console.log(goods);
+    // 报错
+    // goods = '老太太靠着墙喝面条--卑鄙无耻下流';
+
+    // 修改变量
+    info = '枝上柳绵吹又少,天涯何处无芳草!';
+    // console.log(info);
+
+    /*******函数********/
+    // 普通函数
+    function fn() {
+      let str1 = '假如生活欺骗了你,请不要犹豫,不要愤慨';
+      console.log(str1);
+
+    }
+    // 调用函数
+    // fn();
+
+    //return 函数的返回值,谁在哪里调用函数,就把结果返回给谁
+    // return 内部可以返回任何类型的值
+    function fn1() {
+      let str2 = '假如上苍不够慷慨';
+      return str2;
+    }
+    // fn1() 调用函数,结果返回给了res1
+    // let res1 = fn1();
+    // console.log(res1);
+
+    // es6 新语法 箭头函数
+    let fn3 = () => {
+      let str3 = '要嫁就嫁给幸福,要输就输给追求.';
+      console.log(str3);
+
+    }
+    // fn3();
+
+    //变形1: 当形参只有一个省略()   形参1=>{ 函数体 }
+    // info1是形参
+    let fn4 = info => {
+      console.log(info, 6666);
+
+    }
+    // 调用时传递实参
+    // fn4('穷则变,变则通,通则久');
+
+    // 变形2: 当函数体之后一句可以省略 {}   ()=>函数体
+
+    let fn5 = (name, age) => console.log('我是' + name + '今年' + age);
+
+    // fn5('小甜甜', 22);
+
+    // 当把 {} 省略后,其中暗含一个return
+    let fn6 = (name, age) => '我是' + name + '今年' + age;
+
+    let res2 = fn6('zs', 66);
+    // console.log(res2);
+
+    // 变形3:  形参1=>函数体  形参只有一个可以省略()  函数体只有一句省略{}
+    let fn7 = str => str + '喜欢你的眼神...';
+
+    let res3 = fn7('你猜我喜欢那个神?');
+    // console.log(res3);
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

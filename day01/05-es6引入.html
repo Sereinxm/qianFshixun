@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 告诉浏览器,当前js文件以模块化的形式解析 -->
+  <!-- es6的模块化,要以服务器的形式打开 -->
+  <script type="module">
+    // 引入其它页面导出的文件
+    import { fn } from './05-test.js';
+    // console.log(fn);
+    // 调用函数
+    fn();
+
+  </script>
+</body>
+
+</html>
