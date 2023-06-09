@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>是否出版过书籍</p>
+    <span>{{author.books.length ==0 ? 'no' : 'yes'}}</span>
+  </div>
+  <script type="module">
+
+    import { createApp } from '../vue.js';
+    createApp({
+      data() {
+        return {
+          author: {
+            name: "路遥",
+            books: ['平凡的世界', '人生']
+          }
+        }
+      },
+      methods: {},
+      computed: {
+
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

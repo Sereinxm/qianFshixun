@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1 获取ajax对象
+    let xhr = new XMLHttpRequest();
+    // get参数  url?k1=v1&k2=v2
+    xhr.open('get', 'http://localhost:8888/test/third?name=zs&age=22');
+    xhr.send();
+    // 接受返回值
+    xhr.onload = function () {
+      console.log(xhr.response);
+    }
+
+  </script>
+</body>
+
+</html>

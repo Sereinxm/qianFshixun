@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p v-html="msg"></p>
+
+  </div>
+  <script type="module">
+    import { createApp } from '../vue.js';
+
+    /*
+      v:view 可视化界面
+      vm: vue 实例 将数据变为标签的方法
+      m:数据
+    
+    */
+    let app = createApp({
+      data() {
+        return {
+          msg: "勤学如春起之苗,不见其增日有所长;辍学如磨刀之石,不见其损,日有所亏."
+        }
+      }
+    });
+
+
+    app.mount('#app')
+    console.log(app);
+  </script>
+</body>
+
+</html>

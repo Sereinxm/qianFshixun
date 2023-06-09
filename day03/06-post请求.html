@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1 设置请求
+    let xhr = new XMLHttpRequest();
+    xhr.open('post', 'http://localhost:8888/test/fourth');
+    // 设置post的编码方式
+    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+    // 写在send中 以 k=v&k=v&k=v
+    xhr.send('name=zs&age=22');
+    // 当前所有的结果处理只能在回调函数中.
+    xhr.onload = function () {
+      console.log(xhr.response);
+
+    }
+
+  </script>
+</body>
+
+</html>

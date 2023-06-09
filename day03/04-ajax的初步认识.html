@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1 获取实例化对象
+    let xhr = new XMLHttpRequest();
+    // 2 设置请求
+    xhr.open('get', 'http://localhost:8888/test/first');
+    // 3 发送请求
+    xhr.send();
+    // 4 接受ajax的返回值
+    xhr.onload = function () {
+      console.log(xhr.response);
+
+    }
+
+  </script>
+</body>
+
+</html>

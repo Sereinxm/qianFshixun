@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" name="firstName" v-model="firstName" id="">
+    <br />
+    <input type="text" name="lastName" v-model="lastName" id="">
+    <br />
+    <input type="text" name="fullName" v-model="fullName" id="">
+  </div>
+  <script type="module">
+    import { createApp } from '../vue.js'
+
+    createApp({
+      data() {
+        return {
+          firstName: '',
+          lastName: '',
+          fullName: ''
+        }
+      },
+      methods: {
+
+      },
+      watch: {
+        // 监听firstName 和 lastName
+        firstName() {
+          this.fullName = this.firstName + this.lastName;
+        },
+        lastName() {
+          this.fullName = this.firstName + this.lastName;
+        }
+
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

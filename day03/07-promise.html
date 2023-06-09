@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // promise 有三种状态 进行中--->  成功  进行中---->  失败
+
+    let p = new Promise(function (resolve, reject) {
+      // resolve 成功 reject 失败   状态由我们人为进行设置
+      resolve('这是成功的...')
+    });
+    // then 对应成功状态
+    // p.then(data => {
+    //   console.log(data);
+
+    // })
+
+
+    let p1 = new Promise(function (resolve, reject) {
+      reject('这是失败的...')
+    });
+    p1.catch(function (data) {
+      console.log(data);
+
+    })
+
+
+  </script>
+
+</body>
+
+</html>

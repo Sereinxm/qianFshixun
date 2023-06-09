@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>天知道</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/iconfont.css" />
+  <link rel="stylesheet" href="css/main2.css" />
+  <style>
+    .tem .iconfont {
+      font-size: 50px;
+    }
+
+    .list-enter-active,
+    .list-leave-active {
+      transition: all 1s;
+    }
+
+    .list-enter,
+    .list-leave-to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="app">
+    <!-- 顶部输入查询 -->
+    <div class="search_form">
+      <div class="logo">
+        <img src="./img/logo.png" alt="logo" />
+      </div>
+      <div class="form_group">
+        <input type="text" v-model="city" class="input_txt" placeholder="请输入查询的天气" ref="weather" />
+        <button class="input_sub" @click="getWeather">搜 索</button>
+      </div>
+      <div class="hotkey">
+        <a href="javascript:;">北京</a>
+        <a href="javascript:;">上海</a>
+        <a href="javascript:;">广州</a>
+        <a href="javascript:;">深圳</a>
+        <a href="javascript:;">郑州</a>
+      </div>
+    </div>
+    <!-- 天气查询结果显示 -->
+    <ul class="weather_list">
+      <li v-for="(v,k) in weatherList">
+        <div class="info_type">
+          <span class="iconfont" v-html="ICON[v.wea_day_img]">
+          </span>
+        </div>
+        <div class="info_temp">高
+          <b>{{v.tem}}℃</b>
+          <br />低 {{v.tem2}}℃</div>
+        <div class="info_date">
+          <b>{{city}}</b>
+          <span>{{v.date}}</span>
+        </div>
+      </li>
+
+    </ul>
+    <!-- 天气种类模板 -->
+    <div class="tem" style="display: none">
+      <h2>模板</h2>
+      <!-- 雨 -->
+      <span class="iconfont">&#xe931;</span>
+      <!-- 晴 -->
+      <span class="iconfont">&#xe933;</span>
+      <!-- 阴 -->
+      <span class="iconfont ">&#xe92d;</span>
+      <!-- 雪 -->
+      <span class="iconfont">&#xeb87;</span>
+      <!-- 云 -->
+      <span class="iconfont">&#xeb79;</span>
+      <!-- 雷 -->
+      <span class="iconfont">&#xeb77;</span>
+      <!-- 雹 -->
+      <span class="iconfont">&#xeb76;</span>
+      <!-- 雾 -->
+      <span class="iconfont">&#xeb75;</span>
+    </div>
+  </div>
+  <script src="../axios.js"></script>
+  <script type="module">
+    import { createApp } from '../vue.js';
+    //  https://v0.yiketianqi.com/api?unescape=1&version=v9&appid=47499139&appsecret=cs1ezjmP&city=${city}
+    // 图标对象数组
+    const ICON = {
+      yun: '&#xeb79;',
+      yu: '&#xe931;',
+      yin: '&#xe92d;',
+      qing: '&#xe933;'
+    };
+
+    // 定义vue实例
+    createApp({
+      data() {
+        return {
+          weatherList: [],
+          city: '',
+          ICON: {
+            yun: '&#xeb79;',
+            yu: '&#xe931;',
+            yin: '&#xe92d;',
+            qing: '&#xe933;'
+          }
+        }
+      },
+      methods: {
+        getWeather() {
+          // console.log(2222);
+          // console.log(this.$refs.weather.value);
+          // 获取搜索的关键词
+          let val = this.$refs.weather.value;
+          if (!val) return;
+          let that = this;
+          // 发送请求
+          axios.get('https://v0.yiketianqi.com/api?unescape=1&version=v9&appid=47499139&appsecret=cs1ezjmP&city=' + val)
+            .then(function (res) {
+              // console.log(response);
+              // 判断该请求是否成功
+              // console.log(res.data.errCode);
+              if (res.data.errCode == 100) return;
+
+              console.log(res.data.data);
+              that.weatherList = res.data.data;
+
+
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+
+
+        }
+      },
+
+    }).mount('#app')
+
+  </script>
+</body>
+
+</html>
