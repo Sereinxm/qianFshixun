@@ -309,19 +309,12 @@
           // 为给定 ID 的 user 创建请求
           axios.get('https://autumnfish.cn/search?keywords=' + this.songName)
             .then(res => {
-              // console.log(res);
-              // 获取当前请求状态和返回的歌曲
               let { status, data } = res;
               if (status == 200) {
-                // console.log(data);
                 if (data.result.songs) {
                   that.songsList = data.result.songs;
-                  // console.log(that.songsList);
-
                 }
-
               }
-
             }).catch(err => {
               console.log(err);
 
@@ -330,45 +323,26 @@
         },
         // 双击事件的回调方法
         playerSong() {
-          // console.log(99999);
-          // 需要使用当前的id
-          // console.log();
           let id = window.event.target.dataset.id;
-          // console.log(id);
-          // 发送获取歌曲音频资源
           axios.get('https://autumnfish.cn/song/url?id=' + id).then(res => {
-            // console.log(res.data.data);
-            // 将播放的地址,设置给url
             this.musicUrl = res.data.data[0].url;
-            // console.log(this.musicUrl);
             this.showPlaying();
           });
-          // 获取封面
           axios.get('https://autumnfish.cn/song/detail?ids=' + id).then(res => {
-            // console.log(res.data.songs[0].al
-            //   // .picUrl);
             this.playImg = res.data.songs[0].al
               .picUrl
-
           });
-          //获取评论的方法
           this.getCommentList(id);
-
         },
 
 
-        // 控制playing的追加与否,实现转圈
         showPlaying() {
-          // console.log(this.$refs);
-          // 如果当前状态为false,则追加playing,且切换其状态
           this.$refs.cover.classList.add('playing')
           this.$refs.disc.classList.add('playing')
           this.$refs.playBar.classList.add('playing')
         },
-        // 评论的获取
         getCommentList(id) {
           axios.get('https://autumnfish.cn/comment/hot?id=' + id + '&type=0').then(res => {
-
             this.hotComment = res.data.hotComments;
             console.log(this.hotComment);
           })
